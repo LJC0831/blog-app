@@ -4,8 +4,8 @@ import '../css/Navigation.css';
 import '../css/common.css';
 
 function Navigation() {
-  return (
-    <div className="header-common">
+  return ( 
+    <div className="margin-top-50">
     <nav className="left-nav">
       <ul>
         <li><a href="/">소개</a></li>
