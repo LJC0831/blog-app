@@ -1,3 +1,8 @@
-.header-common {
+.margin-top-50 {
   margin-top: 50px;
+}
+
+.margin-50 {
+ margin-top: 50px;
+ margin-left: 50px;
 }
