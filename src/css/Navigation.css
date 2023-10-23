@@ -1,0 +1,23 @@
+/* Navigation.css */
+.left-nav {
+    background-color: #333; /* 배경색 설정 */
+    padding: 20px; /* 패딩 설정 */
+    width: 100px; /* 네비게이션 너비 설정 */
+    height: 100vh;
+    margin-top: 50px;
+  }
+  
+  .left-nav ul {
+    list-style: none; /* 리스트 마커 제거 */
+    padding: 0;
+  }
+  
+  .left-nav li {
+    margin-bottom: 30px; /* 각 항목 사이 여백 설정 */
+  }
+  
+  .left-nav a {
+    color: #fff; /* 링크 글자색 설정 */
+    text-decoration: none; /* 밑줄 제거 */
+    font-size: 18px; /* 글자 크기 설정 */
+  }
