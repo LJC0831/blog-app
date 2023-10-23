@@ -2,9 +2,8 @@
 .left-nav {
     background-color: #333; /* 배경색 설정 */
     padding: 20px; /* 패딩 설정 */
-    width: 100px; /* 네비게이션 너비 설정 */
+    width: 150px; /* 네비게이션 너비 설정 */
     height: 100vh;
-    margin-top: 50px;
   }
   
   .left-nav ul {
