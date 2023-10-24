@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // 에디터의 스타일을 불러옵니다.
+import { save01 } from '../api/Intro_api';
 
 function Intro() {
   const [isEditing, setIsEditing] = useState(false); // 에디터의 가시성 상태를 저장
-  const initialHTML = 'React 환경에서 만든 반응형 어플리케이션 입니다. 제작자 : LJC <br/> 깃허브 놀러오세요'; // 초기 HTML
+  const initialHTML = 'React 환경에서 만든 반응형 어플리케이션 입니다. <br/> 제작자 : LJC <br/> 깃허브 놀러오세요'; // 초기 HTML
 
   const [introText, setIntroText] = useState(initialHTML); // 에디터의 내용을 저장
 
@@ -14,7 +15,11 @@ function Intro() {
 
   const handleEditButtonClick = () => {
     setIsEditing(!isEditing); // 편집 버튼 클릭 시 가시성 상태를 토글
+    if(isEditing){
+      save01(introText);
+    }
   };
+
 
   return (
     <div className='margin-content'>
@@ -22,19 +27,19 @@ function Intro() {
       <h2>안녕하세요!</h2>
 
       {isEditing ? ( // isEditing 상태에 따라 에디터를 표시/숨김
-        <ReactQuill value={introText} onChange={handleIntroTextChange} />
+        <ReactQuill value={introText} onChange={handleIntroTextChange} style={{ width: '50vw' }} />
       ) : (
         <p
           className="description"
           dangerouslySetInnerHTML={{ __html: introText }} // HTML을 렌더링
         />
       )}
-
-      <button onClick={handleEditButtonClick}>
-        {isEditing ? '저장' : '편집'} {/* 편집 버튼의 텍스트 변경 */}
-      </button>
-
       <i className="bi bi-github"></i><a href="https://github.com/LJC0831" target="_blank" rel="noreferrer">이동</a>
+      <p>
+        <button onClick={handleEditButtonClick}>
+          {isEditing ? '저장' : '편집'} {/* 편집 버튼의 텍스트 변경 */}
+        </button>
+      </p>
     </div>
   );
 }
