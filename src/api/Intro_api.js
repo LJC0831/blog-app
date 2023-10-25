@@ -22,7 +22,6 @@ export async function save01(subejct, content) {
     }
   }
 
-// 다른 API 요청을 처리하는 함수 추가
 export async function Search01() {
     try {
         const response = await fetch(`${api}/api/blog/IntroSearch`, {
@@ -42,4 +41,4 @@ export async function Search01() {
       } catch (error) {
         console.error('Search01 조회실패', error);
       }
-  }
+}
