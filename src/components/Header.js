@@ -64,7 +64,7 @@ function Header() {
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <h2>로그인</h2>
+            <h2>관리자 로그인</h2>
             <input type="password" placeholder="비밀번호를 입력해주세요." value={password} onChange={handlePasswordChange} />
             <button onClick={handleLogin}>로그인</button>
             <button onClick={closeModal}>닫기</button>
