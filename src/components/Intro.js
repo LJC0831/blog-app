@@ -19,6 +19,7 @@ function Intro() {
   const initialHTML = ''; // 초기 HTML
   const subejctHTML = ''; // 초기 HTML
   const [subject, setSubject] = useState(subejctHTML);
+  const [isLoginYn, setIsLogin] = useState(false);
 
   const [introText, setIntroText] = useState(initialHTML); // 에디터의 내용을 저장
 
@@ -35,6 +36,8 @@ function Intro() {
 
   // 처음 렌더링 시 Search01 함수 호출
   useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    setIsLogin(isLoggedIn === 'true');
     Search01().then((data) => {
       setSubject(data[0].subject);
       setIntroText(data[0].content);
@@ -67,9 +70,11 @@ function Intro() {
         이동
       </a>
       <p>
-        <button onClick={handleEditButtonClick}>
-          {isEditing ? '저장' : '편집'}
-        </button>
+        { isLoginYn && 
+          <button onClick={handleEditButtonClick}>
+            {isEditing ? '저장' : '편집'}
+          </button>
+        }
       </p>
     </div>
   );

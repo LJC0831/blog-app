@@ -18,6 +18,7 @@ function Header() {
       // 이미 로그인한 경우, 로그아웃 처리
       localStorage.removeItem('isLoggedIn');
       setIsLogin(false);
+      window.location.reload();
     } else {
       setModalOpen(true);
     }
@@ -26,6 +27,7 @@ function Header() {
   const LoginProc = () => {
     setIsLogin(true);
     closeModal();
+    window.location.reload();
   };
 
   const closeModal = () => {
