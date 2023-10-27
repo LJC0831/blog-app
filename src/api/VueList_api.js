@@ -3,7 +3,7 @@ import api from '../api/api';
 
 export async function Search01(board_type) {
     try {
-        const response = await fetch(`${api}/api/blog/vueListSearch`, {
+        const response = await fetch(`${api}/api/blog/BoardListSearch`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',

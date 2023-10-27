@@ -16,7 +16,7 @@ function addLineBreaks(text) {
 }
 
 function BoardWrite() {
-  const { board_id } = useParams();
+  const { id } = useParams(); //게시글번호
   const [isEditing, setIsEditing] = useState(false); // 에디터의 가시성 상태를 저장
   const initialHTML = ''; // 초기 HTML
   const subejctHTML = ''; // 초기 HTML
@@ -40,9 +40,11 @@ function BoardWrite() {
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     setIsLogin(isLoggedIn === 'true');
-    Search01(board_id).then((data) => {
+    Search01(id).then((data) => {
+        setSubject(data[0].title);
+        setIntroText(data[0].content);
     });
-  }, [board_id]); // 빈 배열을 전달하여 컴포넌트 마운트 시 한 번만 실행
+  }, [id]); // 빈 배열을 전달하여 컴포넌트 마운트 시 한 번만 실행
 
   return (
     <div className='margin-content'>
@@ -65,10 +67,6 @@ function BoardWrite() {
           dangerouslySetInnerHTML={{ __html: introText }}
         />
       )}
-      <i className="bi bi-github"></i>
-      <a href="https://github.com/LJC0831" target="_blank" rel="noreferrer">
-        이동
-      </a>
       <p>
         { isLoginYn && 
           <button onClick={handleEditButtonClick}>

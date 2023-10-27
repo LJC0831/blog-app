@@ -24,7 +24,7 @@ export async function save01(subejct, content) {
 
 export async function Search01(board_id) {
     try {
-        const response = await fetch(`${api}/api/blog/IntroSearch`, {
+        const response = await fetch(`${api}/api/blog/BoardSearch`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
