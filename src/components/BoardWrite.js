@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // 게시판 글번호 받기
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // 에디터의 스타일을 불러옵니다.
-import { save01, Search01 } from '../api/BoardWrite_api';
+import { save01, Search01, update01 } from '../api/BoardWrite_api';
 
 // 줄바꿈 문자를 <br> 태그로 변환하는 함수
 function addLineBreaks(text) {
@@ -19,8 +19,8 @@ function BoardWrite() {
   const { id } = useParams(); //게시글번호
   const [isEditing, setIsEditing] = useState(false); // 에디터의 가시성 상태를 저장
   const initialHTML = ''; // 초기 HTML
-  const subejctHTML = ''; // 초기 HTML
-  const [subject, setSubject] = useState(subejctHTML);
+  const titletHTML = ''; // 초기 HTML
+  const [title, setSubject] = useState(titletHTML);
   const [isLoginYn, setIsLogin] = useState(false);
 
   const [introText, setIntroText] = useState(initialHTML); // 에디터의 내용을 저장
@@ -32,7 +32,11 @@ function BoardWrite() {
   const handleEditButtonClick = () => {
     setIsEditing(!isEditing); // 편집 버튼 클릭 시 가시성 상태를 토글
     if (isEditing) {
-      save01(subject, introText);
+      if(id.length > 0){
+        update01(title, introText, id);
+      } else {
+        save01(title, introText);
+      }
     }
   };
 
@@ -50,13 +54,13 @@ function BoardWrite() {
     <div className='margin-content'>
       {isEditing ? (
         <textarea
-          value={subject}
+          value={title}
           onChange={(e) => setSubject(e.target.value)}
           style={{ width: '50vw' }}
         />
       ) : (
         <div>
-          <h1>{addLineBreaks(subject)}</h1>
+          <h1>{addLineBreaks(title)}</h1>
         </div>
       )}
       {isEditing ? (
@@ -70,7 +74,7 @@ function BoardWrite() {
       <p>
         { isLoginYn && 
           <button onClick={handleEditButtonClick}>
-            {isEditing ? '저장' : '편집'}
+            {isEditing ? (id ? '수정' : '저장') : '편집'}
           </button>
         }
       </p>

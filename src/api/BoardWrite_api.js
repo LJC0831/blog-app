@@ -1,24 +1,45 @@
 
 import api from '../api/api';
 
-export async function save01(subejct, content) {
+export async function save01(title, content) {
     try {
-      const response = await fetch(`${api}/api/blog/IntroInsert`, {
+      const response = await fetch(`${api}/api/blog/BoardInsert`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({subejct, content }),
+        body: JSON.stringify({title, content }),
       });
       if (response.ok) {
         // 성공적으로 저장됨
         console.log('내용이 성공적으로 저장되었습니다.');
       } else {
         // 저장 실패
-        console.error('IntroInsert 내용 저장에 실패했습니다.');
+        console.error('BoardInsert 내용 저장에 실패했습니다.');
       }
     } catch (error) {
-      console.error('IntroInsert 내용 저장에 실패했습니다.', error);
+      console.error('BoardInsert 내용 저장에 실패했습니다.', error);
+    }
+  }
+
+  export async function update01(title, content, id) {
+    try {
+      const response = await fetch(`${api}/api/blog/BoardUpdate`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({title, content, id }),
+      });
+      if (response.ok) {
+        // 성공적으로 저장됨
+        console.log('내용이 성공적으로 저장되었습니다.');
+      } else {
+        // 저장 실패
+        console.error('BoardUpdate 내용 저장에 실패했습니다.');
+      }
+    } catch (error) {
+      console.error('BoardUpdate 내용 저장에 실패했습니다.', error);
     }
   }
 
