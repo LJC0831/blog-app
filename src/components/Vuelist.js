@@ -1,10 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Search01 } from '../api/VueList_api';
 import '../css/Vuelist.css';
+import { useNavigate } from 'react-router-dom';
 
 function VueList() {
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
+  const navigate = useNavigate();
+
+  const handleItemClick = (id) => {
+    navigate(`/board/${id}`);
+  };
 
   useEffect(() => {
     // 여기에서 게시글 데이터를 가져오는 API 호출 또는 데이터 로딩 로직을 작성
@@ -35,8 +41,9 @@ function VueList() {
         <h2>Vue.js 작업 관련 게시판입니다.</h2>
         <ul className="post-list">
           {posts.map((post) => (
-            <li key={post.id} className="post-item">
-              <div className="post-title">{post.title}</div>
+            <li key={post.id} className="post-item" onClick={() => handleItemClick(post.id)}>
+              <div className="post-title">{post.title}
+              </div>
               <div className="post-content">{post.privew_content}</div>
               <div className="post-content">
                 <span className='position-right'>입력일자 : {post.ins_ymdhms}</span>
