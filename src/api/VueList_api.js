@@ -1,13 +1,14 @@
 
 import api from '../api/api';
 
-export async function Search01() {
+export async function Search01(board_type) {
     try {
         const response = await fetch(`${api}/api/blog/vueListSearch`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
+          body: JSON.stringify({board_type}),
         });
         if (response.ok) {
           // 성공적으로 저장됨

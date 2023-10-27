@@ -11,7 +11,7 @@ function VueList() {
     // 이 예제에서는 더미 데이터를 사용
     const fetchData = async () => {
       try {
-        Search01().then((data) => {
+        Search01('vue').then((data) => {
           if(data.length > 0){
             setPosts(data);
             setLoading(false);
@@ -36,7 +36,7 @@ function VueList() {
         <ul>
           {posts.map((post) => (
             <li key={post.id} className="post-item">
-              <div className="post-subject">{post.subject}</div>
+              <div className="post-subject">{post.title}</div>
               <div className="post-content">{post.privew_content}</div>
               <div className="post-content">{post.ins_ymdhms}</div>
           </li>
