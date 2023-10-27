@@ -44,7 +44,7 @@ function VueList() {
             <li key={post.id} className="post-item" onClick={() => handleItemClick(post.id)}>
               <div className="post-title">{post.title}
               </div>
-              <div className="post-content">{post.privew_content}</div>
+              <div className="post-content">{post.content}</div>
               <div className="post-content">
                 <span className='position-right'>입력일자 : {post.ins_ymdhms}</span>
               </div>
