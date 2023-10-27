@@ -1,14 +1,14 @@
 
 import api from '../api/api';
 
-export async function save01(title, content) {
+export async function save01(title, content, privew) {
     try {
       const response = await fetch(`${api}/api/blog/BoardInsert`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({title, content }),
+        body: JSON.stringify({title, content, privew}),
       });
       if (response.ok) {
         // 성공적으로 저장됨
@@ -22,14 +22,14 @@ export async function save01(title, content) {
     }
   }
 
-  export async function update01(title, content, id) {
+  export async function update01(title, content, privew, id) {
     try {
       const response = await fetch(`${api}/api/blog/BoardUpdate`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({title, content, id }),
+        body: JSON.stringify({title, content, privew, id }),
       });
       if (response.ok) {
         // 성공적으로 저장됨
