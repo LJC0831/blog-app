@@ -33,12 +33,14 @@ function VueList() {
     <div className='margin-content'>
       <div className="vue-list-container">
         <h2>Vue.js 작업 관련 게시판입니다.</h2>
-        <ul>
+        <ul className="post-list">
           {posts.map((post) => (
             <li key={post.id} className="post-item">
-              <div className="post-subject">{post.title}</div>
+              <div className="post-title">{post.title}</div>
               <div className="post-content">{post.privew_content}</div>
-              <div className="post-content">{post.ins_ymdhms}</div>
+              <div className="post-content">
+                <span className='position-right'>입력일자 : {post.ins_ymdhms}</span>
+              </div>
           </li>
           ))}
         </ul>

@@ -1,14 +1,14 @@
 /* VueList.css */
 
-.vue-list-container {
+  .vue-list-container {
     background-color: #f0f0f0;
     padding: 20px;
     border-radius: 10px;
-    margin: 20px;
+    margin: 20px auto;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 800px;
+    max-width: 800px;
   }
-  
+    
   h2 {
     font-size: 24px;
     margin-bottom: 20px;
@@ -25,14 +25,25 @@
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
+    list-style: none;
   }
   
-  .post-subject {
-    font-size: 18px;
+  .post-title {
+    font-size: 25px;
     font-weight: bold;
     margin-bottom: 10px;
   }
-  
+
   .post-content {
     font-size: 16px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-bottom: 10px;
+    margin-left: 10px;
+  }
+
+  .position-right{
+    float : right;
+    color: #888;
   }
