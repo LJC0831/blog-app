@@ -68,7 +68,7 @@ function BoardWrite() {
       )}
       {isEditing && (
         <p><textarea value={privew} 
-        onChange={(e) => setSubject(e.target.value)}
+        onChange={(e) => setPrivew(e.target.value)}
         style={{ width: '50vw' }}
         />
         </p>
