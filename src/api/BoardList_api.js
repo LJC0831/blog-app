@@ -1,5 +1,5 @@
 
-import api from '../api/api';
+import api from './api';
 
 export async function Search01(board_type) {
     try {
