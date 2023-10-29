@@ -17,7 +17,7 @@ function ReactList() {
     // 이 예제에서는 더미 데이터를 사용
     const fetchData = async () => {
       try {
-        Search01('vue').then((data) => {
+        Search01('react').then((data) => {
           if(data.length > 0){
             setPosts(data);
             setLoading(false);
@@ -38,7 +38,7 @@ function ReactList() {
   return (
     <div className='margin-content'>
       <div className="vue-list-container">
-        <h2>Vue.js 작업 관련 게시판입니다.</h2>
+        <h2>React.js 작업 관련 게시판입니다.</h2>
         <ul className="post-list">
           {posts.map((post) => (
             <li key={post.id} className="post-item" onClick={() => handleItemClick(post.id)}>
