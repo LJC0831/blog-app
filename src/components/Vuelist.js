@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Search01 } from '../api/BoardList_api';
-import '../css/BoardList.css';
+import '../css/Vuelist.css';
 import { useNavigate } from 'react-router-dom';
 
 function VueList() {
