@@ -5,6 +5,7 @@ import '../css/common.css';
 function Navigation() {
   const [showFrontendMenu, setShowFrontendMenu] = useState(true);
   const [showFrontendMenu2, setShowFrontendMenu2] = useState(true);
+  const [showFrontendMenu3, setShowFrontendMenu3] = useState(true);
 
   const toggleFrontendMenu = () => {
     setShowFrontendMenu(!showFrontendMenu);
@@ -12,6 +13,10 @@ function Navigation() {
 
   const toggleFrontendMenu2 = () => {
     setShowFrontendMenu2(!showFrontendMenu2);
+  };
+
+  const toggleFrontendMenu3 = () => {
+    setShowFrontendMenu3(!showFrontendMenu3);
   };
 
   return (
@@ -35,11 +40,18 @@ function Navigation() {
             backend
             {showFrontendMenu2 && (
               <ul>
-                <li className='li-sub'><a href="/board/node.js">└ node.js</a></li>
+                <li className='li-sub'><a href="/board/nodejs">└ node.js</a></li>
               </ul>
             )}
           </li>
-          <li><a href="/board">DB</a></li>
+          <li onClick={toggleFrontendMenu3}>
+            DB
+            {showFrontendMenu3 && (
+              <ul>
+                <li className='li-sub'><a href="/board/mariadb">└ MariaDB</a></li>
+              </ul>
+            )}
+          </li>
           <li><a href="/contact">문의</a></li>
         </ul>
       </nav>
