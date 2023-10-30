@@ -8,7 +8,7 @@ export async function save01(subejct, content) {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({subejct, content }),
+        body: JSON.stringify({subejct, content}),
       });
       if (response.ok) {
         // 성공적으로 저장됨
@@ -45,7 +45,7 @@ export async function Search01() {
 
 export async function upload01(html) {
   try {
-      const response = await fetch(`${api}/api/blog/upload`, {
+      const response = await fetch(`${api}/api/blog/intro/upload`, {
         method: 'POST',
         headers: {
           'Content-Type': 'text/plain',
@@ -58,10 +58,28 @@ export async function upload01(html) {
         return data; // 데이터 반환
       } else {
         // 저장 실패
-        console.error('Search01 조회실패');
+        console.error('upload 처리실패');
       }
     } catch (error) {
-      debugger;
-      console.error('Search01 조회실패', error);
+      console.error('upload 처리실패', error);
+    }
+}
+
+export async function fileDelete01() {
+  try {
+      const response = await fetch(`${api}/api/blog/intro/fileDelete`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain',
+        },
+      });
+      if (response.ok) {
+        console.error('intro file 삭제');
+      } else {
+        // 저장 실패
+        console.error('fileDelete 조회실패');
+      }
+    } catch (error) {
+      console.error('fileDelete 조회실패', error);
     }
 }
