@@ -42,3 +42,26 @@ export async function Search01() {
         console.error('Search01 조회실패', error);
       }
 }
+
+export async function upload01(html) {
+  try {
+      const response = await fetch(`${api}/api/blog/upload`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'text/plain',
+        },
+        body: html,
+      });
+      if (response.ok) {
+        // 성공적으로 저장됨
+        const data = await response.text(); // JSON 데이터를 파싱
+        return data; // 데이터 반환
+      } else {
+        // 저장 실패
+        console.error('Search01 조회실패');
+      }
+    } catch (error) {
+      debugger;
+      console.error('Search01 조회실패', error);
+    }
+}

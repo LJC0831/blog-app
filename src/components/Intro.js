@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // 에디터의 스타일을 불러옵니다.
-import { save01, Search01 } from '../api/Intro_api';
+import { save01, Search01, upload01 } from '../api/Intro_api';
 
 // 줄바꿈 문자를 <br> 태그로 변환하는 함수
 function addLineBreaks(text) {
@@ -27,10 +27,11 @@ function Intro() {
     setIntroText(value);
   };
 
-  const handleEditButtonClick = () => {
+  const handleEditButtonClick = async() => {
     setIsEditing(!isEditing); // 편집 버튼 클릭 시 가시성 상태를 토글
     if (isEditing) {
-      save01(subject, introText);
+      const html = await upload01(introText);
+      save01(subject, html);
     }
   };
 
