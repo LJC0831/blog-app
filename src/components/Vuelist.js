@@ -12,6 +12,9 @@ function VueList() {
   const handleItemClick = (id) => {
     navigate(`/board/${id}`);
   };
+  const handleInsertButton = () => {
+    navigate(`/board/write`);
+  };
 
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
@@ -42,7 +45,7 @@ function VueList() {
     <div className='margin-content'>
       <div className="vue-list-container">
         { isLoginYn && 
-          <button className="new-post-button">새글추가 +</button>
+          <button className="new-post-button" onClick={handleInsertButton}>새글추가 +</button>
         }
         <h2>Vue.js 작업 관련 게시판입니다.</h2>
         <ul className="post-list">
