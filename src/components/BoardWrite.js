@@ -44,7 +44,7 @@ function BoardWrite() {
 
   // 처음 렌더링 시 Search01 함수 호출
   useEffect(() => {
-    if(id !== undefined){ //작성된 글 읽기
+    if(!isNaN(id)){ //작성된 글 읽기
       const isLoggedIn = localStorage.getItem('isLoggedIn');
       setIsLogin(isLoggedIn === 'true');
       Search01(id).then((data) => {
