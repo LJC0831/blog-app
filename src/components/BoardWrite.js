@@ -34,19 +34,19 @@ function BoardWrite() {
   const handleEditButtonClick = () => {
     setIsEditing(!isEditing); // 편집 버튼 클릭 시 가시성 상태를 토글
     if (isEditing) {
-      if(id.length > 0){
+      if(!isNaN(id)){
         update01(title, introText, privew, id);
       } else {
-        save01(title, introText, privew);
+        save01(title, introText, privew, id);
       }
     }
   };
 
   // 처음 렌더링 시 Search01 함수 호출
   useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    setIsLogin(isLoggedIn === 'true');
     if(!isNaN(id)){ //작성된 글 읽기
-      const isLoggedIn = localStorage.getItem('isLoggedIn');
-      setIsLogin(isLoggedIn === 'true');
       Search01(id).then((data) => {
           setSubject(data[0].title);
           setIntroText(data[0].content);
@@ -88,8 +88,8 @@ function BoardWrite() {
       )}
       <p>
         { isLoginYn && 
-          <button onClick={handleEditButtonClick}>
-            {isEditing ? (id ? '수정' : '저장') : '편집'}
+          <button className="new-post-button" onClick={handleEditButtonClick}>
+            {isEditing ? (!isNaN(id) ? '수정' : '저장') : '편집'}
           </button>
         }
       </p>

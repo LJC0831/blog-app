@@ -1,14 +1,14 @@
 
 import api from '../api/api';
 
-export async function save01(title, content, privew) {
+export async function save01(title, content, privew, board_type) {
     try {
       const response = await fetch(`${api}/api/blog/BoardInsert`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({title, content, privew}),
+        body: JSON.stringify({title, content, privew, board_type}),
       });
       if (response.ok) {
         // 성공적으로 저장됨
