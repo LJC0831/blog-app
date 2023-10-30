@@ -44,13 +44,17 @@ function BoardWrite() {
 
   // 처음 렌더링 시 Search01 함수 호출
   useEffect(() => {
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    setIsLogin(isLoggedIn === 'true');
-    Search01(id).then((data) => {
-        setSubject(data[0].title);
-        setIntroText(data[0].content);
-        setPrivew(data[0].privew_content)
-    });
+    if(id !== undefined){ //작성된 글 읽기
+      const isLoggedIn = localStorage.getItem('isLoggedIn');
+      setIsLogin(isLoggedIn === 'true');
+      Search01(id).then((data) => {
+          setSubject(data[0].title);
+          setIntroText(data[0].content);
+          setPrivew(data[0].privew_content);
+      });
+    } else { // 새글작성
+      setIsEditing(true);
+    }
   }, [id]); // 빈 배열을 전달하여 컴포넌트 마운트 시 한 번만 실행
 
   return (
