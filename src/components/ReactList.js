@@ -13,7 +13,7 @@ function ReactList() {
     navigate(`/board/${id}`);
   };
   const handleInsertButton = () => {
-    navigate(`/board/write`);
+    navigate(`/board/write/react`);
   };
 
   useEffect(() => {
