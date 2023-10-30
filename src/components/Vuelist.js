@@ -6,6 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function VueList() {
   const [loading, setLoading] = useState(true);
   const [posts, setPosts] = useState([]);
+  const [isLoginYn, setIsLogin] = useState(false);
   const navigate = useNavigate();
 
   const handleItemClick = (id) => {
@@ -13,6 +14,8 @@ function VueList() {
   };
 
   useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    setIsLogin(isLoggedIn === 'true');
     // 여기에서 게시글 데이터를 가져오는 API 호출 또는 데이터 로딩 로직을 작성
     // 이 예제에서는 더미 데이터를 사용
     const fetchData = async () => {
@@ -38,6 +41,9 @@ function VueList() {
   return (
     <div className='margin-content'>
       <div className="vue-list-container">
+        { isLoginYn && 
+          <button className="new-post-button">새글추가 +</button>
+        }
         <h2>Vue.js 작업 관련 게시판입니다.</h2>
         <ul className="post-list">
           {posts.map((post) => (

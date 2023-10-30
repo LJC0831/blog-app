@@ -71,7 +71,7 @@ function Intro() {
       </a>
       <p>
         { isLoginYn && 
-          <button onClick={handleEditButtonClick}>
+          <button className='new-post-button' onClick={handleEditButtonClick}>
             {isEditing ? '저장' : '편집'}
           </button>
         }
