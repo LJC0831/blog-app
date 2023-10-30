@@ -13,7 +13,7 @@ function VueList() {
     navigate(`/board/${id}`);
   };
   const handleInsertButton = () => {
-    navigate(`/board/write/vuejs`);
+    navigate(`/board/write/vue`);
   };
 
   useEffect(() => {
