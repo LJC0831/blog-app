@@ -68,13 +68,12 @@ export async function upload01(html) {
 export async function fileDelete01() {
   try {
       const response = await fetch(`${api}/api/blog/intro/fileDelete`, {
-        method: 'POST',
+        method: 'GET',
         headers: {
           'Content-Type': 'text/plain',
         },
       });
       if (response.ok) {
-        console.error('intro file 삭제');
       } else {
         // 저장 실패
         console.error('fileDelete 조회실패');
