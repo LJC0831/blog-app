@@ -43,7 +43,7 @@ export async function Search01() {
       }
 }
 
-export async function upload01(html) {
+export async function upload01(html, board_id) {
   try {
       const chunkSize = 1024; // 각 덩어리의 크기 (예: 1KB * 1000)
       const chunks = [];
@@ -52,7 +52,7 @@ export async function upload01(html) {
       }
       for (let i = 0; i <chunks.length; i ++) {
         const isLastChunk = i === chunks.length - 1;
-        const response = await fetch(`${api}/api/blog/intro/upload`, {
+        const response = await fetch(`${api}/api/blog/board/upload?board_id=${board_id}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'text/plain',
@@ -66,13 +66,13 @@ export async function upload01(html) {
         } 
       }
     } catch (error) {
-      console.error('upload 처리실패', error);
+      console.log('base64처리중');
     }
 }
 
 export async function fileDelete01() {
   try {
-      const response = await fetch(`${api}/api/blog/intro/fileDelete`, {
+      const response = await fetch(`${api}/api/blog/board/fileDelete`, {
         method: 'GET',
         headers: {
           'Content-Type': 'text/plain',

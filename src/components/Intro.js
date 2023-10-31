@@ -31,7 +31,7 @@ function Intro() {
     setIsEditing(!isEditing); // 편집 버튼 클릭 시 가시성 상태를 토글
     if (isEditing) {
       await fileDelete01();
-      const html = await upload01(introText);
+      const html = await upload01(introText, '');
       save01(subject, html);
     }
   };
