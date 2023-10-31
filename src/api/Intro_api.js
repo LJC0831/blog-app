@@ -50,27 +50,20 @@ export async function upload01(html) {
       for (let i = 0; i < html.length; i += chunkSize) {
         chunks.push(html.slice(i, i + chunkSize));
       }
-      let cnt = 0;
-      for (const chunk of chunks) {
-        const isLastChunk = cnt === chunks.length;
-        debugger;
+      for (let i = 0; i <chunks.length; i ++) {
+        const isLastChunk = i === chunks.length - 1;
         const response = await fetch(`${api}/api/blog/intro/upload`, {
           method: 'POST',
           headers: {
             'Content-Type': 'text/plain',
           },
-          body: isLastChunk ? chunk : chunk + 'LINEEND'
+          body: isLastChunk ? chunks[i] + 'LASTCHUNK' : chunks[i] 
         });
         if (response.ok) {
-          debugger;
           // 성공적으로 저장됨
            const data = await response.text(); // JSON 데이터를 파싱
            return data; // 데이터 반환
-        } else {
-          // 저장 실패
-          console.error('upload 처리실패');
-        }
-        cnt = cnt + 1;
+        } 
       }
     } catch (error) {
       console.error('upload 처리실패', error);
