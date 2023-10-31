@@ -45,20 +45,32 @@ export async function Search01() {
 
 export async function upload01(html) {
   try {
-      const response = await fetch(`${api}/api/blog/intro/upload`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'text/plain',
-        },
-        body: html,
-      });
-      if (response.ok) {
-        // 성공적으로 저장됨
-        const data = await response.text(); // JSON 데이터를 파싱
-        return data; // 데이터 반환
-      } else {
-        // 저장 실패
-        console.error('upload 처리실패');
+      const chunkSize = 1024; // 각 덩어리의 크기 (예: 1KB * 1000)
+      const chunks = [];
+      for (let i = 0; i < html.length; i += chunkSize) {
+        chunks.push(html.slice(i, i + chunkSize));
+      }
+      let cnt = 0;
+      for (const chunk of chunks) {
+        const isLastChunk = cnt === chunks.length;
+        debugger;
+        const response = await fetch(`${api}/api/blog/intro/upload`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'text/plain',
+          },
+          body: isLastChunk ? chunk : chunk + 'LINEEND'
+        });
+        if (response.ok) {
+          debugger;
+          // 성공적으로 저장됨
+           const data = await response.text(); // JSON 데이터를 파싱
+           return data; // 데이터 반환
+        } else {
+          // 저장 실패
+          console.error('upload 처리실패');
+        }
+        cnt = cnt + 1;
       }
     } catch (error) {
       console.error('upload 처리실패', error);
