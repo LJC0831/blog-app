@@ -45,7 +45,7 @@ export async function Search01() {
 
 export async function upload01(html, board_id) {
   try {
-      const chunkSize = 1024; // 각 덩어리의 크기 (예: 1KB * 1000)
+      const chunkSize = 1024 * 50; // 각 덩어리의 크기 (예: 1KB * 50)
       const chunks = [];
       for (let i = 0; i < html.length; i += chunkSize) {
         chunks.push(html.slice(i, i + chunkSize));
