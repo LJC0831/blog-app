@@ -98,8 +98,9 @@ export async function upload01(html, board_type, board_id) {
 
 export async function fileStatUpdate(id) {
   try {
+    debugger;
       const response = await fetch(`${api}/api/blog/board/fileStatUpdate`, {
-        method: 'GET',
+        method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
