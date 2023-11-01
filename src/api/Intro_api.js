@@ -60,13 +60,17 @@ export async function upload01(html, board_id) {
           body: isLastChunk ? chunks[i] + 'LASTCHUNK' : chunks[i] 
         });
         if (response.ok) {
-          // 성공적으로 저장됨
-           const data = await response.text(); // JSON 데이터를 파싱
-           return data; // 데이터 반환
+          if (response.status === 201) {
+            console.log("base64처리중");
+          } else {
+            // 성공적으로 저장됨
+            const data = await response.text(); // JSON 데이터를 파싱
+            return data; // 데이터 반환
+          }
         } 
       }
     } catch (error) {
-      console.log('base64처리중');
+      console.log('base64변환중 에러발생');
     }
 }
 
