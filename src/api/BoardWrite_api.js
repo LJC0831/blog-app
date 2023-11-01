@@ -95,3 +95,22 @@ export async function upload01(html, board_type, board_id) {
       console.log('base64변환중 에러발생');
     }
 }
+
+export async function fileStatUpdate(id) {
+  try {
+      const response = await fetch(`${api}/api/blog/board/fileStatUpdate`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({id}),
+      });
+      if (response.ok) {
+      } else {
+        // 저장 실패
+        console.error('fileDelete 조회실패');
+      }
+    } catch (error) {
+      console.error('fileDelete 조회실패', error);
+    }
+}

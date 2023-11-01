@@ -79,7 +79,7 @@ export async function fileStatUpdate() {
       const response = await fetch(`${api}/api/blog/board/fileStatUpdate`, {
         method: 'GET',
         headers: {
-          'Content-Type': 'text/plain',
+          'Content-Type': 'application/json',
         },
       });
       if (response.ok) {

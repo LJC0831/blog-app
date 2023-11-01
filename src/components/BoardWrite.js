@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // 게시판 글번호 받기
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // 에디터의 스타일을 불러옵니다.
-import { save01, Search01, update01, upload01 } from '../api/BoardWrite_api';
+import { save01, Search01, update01, upload01, fileStatUpdate } from '../api/BoardWrite_api';
 
 // 줄바꿈 문자를 <br> 태그로 변환하는 함수
 function addLineBreaks(text) {
@@ -35,7 +35,9 @@ function BoardWrite() {
     setIsEditing(!isEditing); // 편집 버튼 클릭 시 가시성 상태를 토글
     if (isEditing) {
       if(!isNaN(id)){
-        update01(title, introText, privew, id);
+        await fileStatUpdate(id);
+        const html = await upload01(introText, '', id); //html, board_type, board_id
+        update01(title, html, privew, id);
       } else {
         const html = await upload01(introText, id,''); //html, board_type, board_id
         save01(title, html, privew, id);
