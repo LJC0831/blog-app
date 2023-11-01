@@ -43,7 +43,7 @@ export async function Search01() {
       }
 }
 
-export async function upload01(html, board_id) {
+export async function upload01(html, board_type, board_id) {
   try {
       const chunkSize = 1024 * 50; // 각 덩어리의 크기 (예: 1KB * 50)
       const chunks = [];
@@ -52,7 +52,7 @@ export async function upload01(html, board_id) {
       }
       for (let i = 0; i <chunks.length; i ++) {
         const isLastChunk = i === chunks.length - 1;
-        const response = await fetch(`${api}/api/blog/board/upload?board_id=${board_id}`, {
+        const response = await fetch(`${api}/api/blog/board/upload?board_type=${board_type}&board_id=${board_id}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'text/plain',
