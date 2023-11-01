@@ -24,11 +24,26 @@ function BoardWrite() {
   const [title, setSubject] = useState(titletHTML);
   const [privew, setPrivew] = useState(privewtHTML);
   const [isLoginYn, setIsLogin] = useState(false);
-
   const [introText, setIntroText] = useState(initialHTML); // 에디터의 내용을 저장
 
+   //에디터 옵션
+   const toolbarOptions = [
+    [{ header: [1, 2, 3, 4, 5, false] }],
+    ["bold", "italic", "underline", "strike"],
+    ["blockquote"],
+    [{ list: "ordered" }, { list: "bullet" }],
+    [{ color: [] }, { background: [] }],
+    [{ align: [] }],
+  ]; 
+
+  const modules = {
+    toolbar: {
+      container: toolbarOptions,
+    },
+  };
+
   const handleIntroTextChange = (value) => {
-    setIntroText(value);
+    setIntroText(value); 
   };
 
   const handleEditButtonClick = async() => {
@@ -37,10 +52,10 @@ function BoardWrite() {
       if(!isNaN(id)){
         await fileStatUpdate(id);
         const html = await upload01(introText, '', id); //html, board_type, board_id
-        update01(title, html, privew, id);
+        update01(title, html.replace(/'/g, "\\'"), privew, id); //작은따옴표의 경우 '\ 로 변경
       } else {
         const html = await upload01(introText, id,''); //html, board_type, board_id
-        save01(title, html, privew, id);
+        save01(title, html.replace(/'/g, "\\'"), privew, id); //작은따옴표의 경우 '\ 로 변경
       }
     }
   };
@@ -82,7 +97,7 @@ function BoardWrite() {
       ) 
       }
       {isEditing ? (
-        <ReactQuill value={introText} onChange={handleIntroTextChange} style={{ width: '50vw' }} />
+        <ReactQuill value={introText} onChange={handleIntroTextChange} modules={modules} style={{ width: '50vw' }} />
       ) : (
         <p
           className="description"
