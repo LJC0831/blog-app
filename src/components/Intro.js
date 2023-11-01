@@ -24,7 +24,7 @@ function Intro() {
 
    //에디터 옵션
   const toolbarOptions = [
-    [{ header: [1, 2, 3, 4, 5, false] }],
+    [{ header: [1, 2, 3, 4, 5, 6, 7, false] }],
     ["bold", "italic", "underline", "strike"],
     ["blockquote"],
     [{ list: "ordered" }, { list: "bullet" }],
