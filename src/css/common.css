@@ -8,3 +8,15 @@
  width:100%;
  min-width:1200px;
 }
+
+/* 화면 크기가 768px 이하일 때 스타일 변경 */
+@media (max-width: 768px) {
+  .margin-content {
+    width:100%;
+    max-width:700px;
+   }
+  main {
+    max-width: 700px; /* 최대 너비 700px로 제한 */
+    margin-left:-50px;
+  }
+}

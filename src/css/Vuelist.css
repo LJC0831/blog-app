@@ -62,3 +62,9 @@
   .new-post-button:hover {
     background-color: #0056b3; /* Change to your preferred hover background color */
   }
+
+  /* 화면 크기가 768px 이하일 때 스타일 변경 */
+@media (max-width: 768px) {
+  
+
+}
