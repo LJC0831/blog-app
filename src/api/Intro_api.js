@@ -74,9 +74,9 @@ export async function upload01(html, board_id) {
     }
 }
 
-export async function fileDelete01() {
+export async function fileStatUpdate() {
   try {
-      const response = await fetch(`${api}/api/blog/board/fileDelete`, {
+      const response = await fetch(`${api}/api/blog/board/fileStatUpdate`, {
         method: 'GET',
         headers: {
           'Content-Type': 'text/plain',
