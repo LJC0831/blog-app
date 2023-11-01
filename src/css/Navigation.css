@@ -11,7 +11,7 @@
   }
   
   .left-nav li {
-    margin-bottom: 30px; /* 각 항목 사이 여백 설정 */
+    margin-bottom: 20px; /* 각 항목 사이 여백 설정 */
   }
   
   .left-nav a {
@@ -30,3 +30,27 @@
   .li-sub{
     font-weight: bold;
   }
+
+
+  /* 화면 크기가 768px 이하일 때 스타일 변경 */
+@media (max-width: 768px) {
+  .left-nav {
+    background-color: #ffffff; /* 배경색 설정 */
+    padding: 5px; /* 패딩 설정 */
+    width: 80px; /* 네비게이션 너비 설정 */
+  }
+
+  .profile-img {
+    width: 70px; /* 원하는 너비로 조절 */
+    height: 70px; /* 원하는 높이로 조절 */
+  }
+  .left-nav li {
+    margin-bottom: 10px; /* 각 항목 사이 여백 설정 */
+  }
+  .left-nav a {
+    color: #000000; /* 링크 글자색 설정 */
+    text-decoration: none; /* 밑줄 제거 */
+    font-size: 13px; /* 글자 크기 설정 */
+  }
+
+}
