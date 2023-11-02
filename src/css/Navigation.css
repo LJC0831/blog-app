@@ -48,7 +48,7 @@
   .left-nav a {
     color: #000000; /* 링크 글자색 설정 */
     text-decoration: none; /* 밑줄 제거 */
-    font-size: 18px; /* 글자 크기 설정 */
+    font-size: 14px; /* 글자 크기 설정 */
   }
 
 }
