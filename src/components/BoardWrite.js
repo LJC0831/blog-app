@@ -111,6 +111,16 @@ function BoardWrite() {
           </button>
         }
       </p>
+      <div className="comment-section">
+        <h2>댓글</h2>
+        <div className="comment-list">
+
+        </div>
+        <div className="comment-form">
+          <textarea className='comment-textarea' placeholder="댓글을 작성하세요"/>
+          <button className="new-post-button">댓글 작성</button>
+        </div>
+      </div>
     </div>
   );
 }
