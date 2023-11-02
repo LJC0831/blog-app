@@ -83,7 +83,7 @@ function BoardWrite() {
           style={{ width: '50vw' }}
         />
       ) : (
-        <div>
+        <div className='board-subject'>
           <h1>{addLineBreaks(title)}</h1>
         </div>
         

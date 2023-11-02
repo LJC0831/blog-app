@@ -70,7 +70,7 @@ function Intro() {
           style={{ width: '50vw' }}
         />
       ) : (
-        <div>
+        <div className='board-subject'>
           <h1>{addLineBreaks(subject)}</h1>
         </div>
       )}

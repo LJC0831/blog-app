@@ -8,15 +8,30 @@
  width:100%;
  min-width:1200px;
 }
+.description {
+  line-height: 1.5;
+  margin-top: 20px;
+}
+.board-subject {
+  background-color: #333; /* 배경색을 원하는 색상으로 설정하세요 */
+  height: 120px;
+  text-align: center; /* 가운데 정렬 */
+  color: #fff; /* 글자색을 흰색으로 설정 */
+  padding: 10px; /* 내용과의 간격을 조절하세요 */
+}
 
 /* 화면 크기가 768px 이하일 때 스타일 변경 */
 @media (max-width: 768px) {
   .margin-content {
-    width:100%;
     max-width:700px;
    }
   main {
     max-width: 700px; /* 최대 너비 700px로 제한 */
     margin-left:-50px;
+  }
+  .description {
+    max-width: 700px;
+    line-height: 0.8;
+    font-size: 14px;
   }
 }
