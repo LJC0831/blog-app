@@ -1,7 +1,7 @@
 .header-class {
     position: fixed; /* 헤더를 화면 상단에 고정시킴 */
     top: 0; /* 화면 위쪽에 고정시킴 */
-    width: 100%; /* 화면 너비에 맞춤 */
+    width: 100vw; /* 화면 너비에 맞춤 */
     background-color: #ffffff; /* 헤더 배경색 지정 */
     color: #070707; /* 헤더 글자색 지정 */
     padding: 10px; /* 헤더 패딩 설정 (선택사항) */
