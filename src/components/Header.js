@@ -50,10 +50,14 @@ function Header() {
     });
   };
 
+  const goToHomePage = () => {
+    window.location.href = '/'; // 페이지 이동
+  };
+
   return (
     <header className="header-class">
       <div>
-        <span>LJC Developer Blog</span>
+        <span className='logo-class' onClick={goToHomePage}>LJC Developer Blog</span>
         {isLoginYn ? (
           <span className='account-class' onClick={openModal}>Admin</span>
         ) : (
