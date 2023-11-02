@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // 게시판 글번호 받기
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // 에디터의 스타일을 불러옵니다.
-import { save01, Search01, update01, upload01, fileStatUpdate } from '../api/BoardWrite_api';
+import { save01, Search01, Search02, update01, upload01, fileStatUpdate } from '../api/BoardWrite_api';
 
 // 줄바꿈 문자를 <br> 태그로 변환하는 함수
 function addLineBreaks(text) {
@@ -21,10 +21,13 @@ function BoardWrite() {
   const initialHTML = ''; // 초기 HTML
   const titletHTML = ''; // 초기 HTML
   const privewtHTML = ''; // 초기 HTML
+  
   const [title, setSubject] = useState(titletHTML);
   const [privew, setPrivew] = useState(privewtHTML);
   const [isLoginYn, setIsLogin] = useState(false);
   const [introText, setIntroText] = useState(initialHTML); // 에디터의 내용을 저장
+  const [commentData, setCommentData] = useState([]); // 댓글 데이터를 배열로 관리
+
 
    //에디터 옵션
    const toolbarOptions = [
@@ -65,10 +68,23 @@ function BoardWrite() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     setIsLogin(isLoggedIn === 'true');
     if(!isNaN(id)){ //작성된 글 읽기
-      Search01(id).then((data) => {
+      Search01(id).then((data) => { //게시글조회
           setSubject(data[0].title);
           setIntroText(data[0].content);
           setPrivew(data[0].privew_content);
+      });
+      Search02(id).then((data) => {
+        // 모든 댓글 정보를 배열에 저장
+        const comments = data.map((comment) => {
+          return {
+            user: comment.ins_user_id,
+            content: comment.comment,
+            date: comment.ins_ymdhms,
+          };
+        });
+        
+        // 배열로 저장한 댓글 정보를 상태 변수로 설정
+        setCommentData(comments);
       });
     } else { // 새글작성
       setIsEditing(true);
@@ -114,7 +130,9 @@ function BoardWrite() {
       <div className="comment-section">
         <h2>댓글</h2>
         <div className="comment-list">
-
+          {commentData.map((comment, index) => (
+            <p key={index}>{comment.user} : {comment.content} 작성시간: {comment.date}</p>
+          ))}
         </div>
         <div className="comment-form">
           <textarea className='comment-textarea' placeholder="댓글을 작성하세요"/>
