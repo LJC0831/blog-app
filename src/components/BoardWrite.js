@@ -131,7 +131,9 @@ function BoardWrite() {
         <h2>댓글</h2>
         <div className="comment-list">
           {commentData.map((comment, index) => (
-            <p key={index}>{comment.user} : {comment.content} 작성시간: {comment.date}</p>
+            <p key={index}><span className='comment-user'>{comment.user}</span> 
+            <span className='comment-txt'>{comment.content}</span>
+            <span className='comment-time'>작성시간: {comment.date}</span></p>
           ))}
         </div>
         <div className="comment-form">
