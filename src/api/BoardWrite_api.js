@@ -1,6 +1,7 @@
 
 import api from '../api/api';
 
+// 게시글작성
 export async function save01(title, content, privew, board_type) {
     try {
       const response = await fetch(`${api}/api/blog/BoardInsert`, {
@@ -9,6 +10,27 @@ export async function save01(title, content, privew, board_type) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({title, content, privew, board_type}),
+      });
+      if (response.ok) {
+        // 성공적으로 저장됨
+        console.log('내용이 성공적으로 저장되었습니다.');
+      } else {
+        // 저장 실패
+        console.error('BoardInsert 내용 저장에 실패했습니다.');
+      }
+    } catch (error) {
+      console.error('BoardInsert 내용 저장에 실패했습니다.', error);
+    }
+  }
+  // 댓글작성
+export async function save02(id, commentData, ins_user_id) {
+    try {
+      const response = await fetch(`${api}/api/blog/BoardInsert2`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({id, commentData, ins_user_id}),
       });
       if (response.ok) {
         // 성공적으로 저장됨

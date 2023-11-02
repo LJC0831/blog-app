@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // 게시판 글번호 받기
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // 에디터의 스타일을 불러옵니다.
-import { save01, Search01, Search02, update01, upload01, fileStatUpdate } from '../api/BoardWrite_api';
+import { save01, Search01, Search02, update01, upload01, fileStatUpdate, save02 } from '../api/BoardWrite_api';
 
 // 줄바꿈 문자를 <br> 태그로 변환하는 함수
 function addLineBreaks(text) {
@@ -21,11 +21,13 @@ function BoardWrite() {
   const initialHTML = ''; // 초기 HTML
   const titletHTML = ''; // 초기 HTML
   const privewtHTML = ''; // 초기 HTML
+  const initComment = '';
   
   const [title, setSubject] = useState(titletHTML);
   const [privew, setPrivew] = useState(privewtHTML);
   const [isLoginYn, setIsLogin] = useState(false);
   const [introText, setIntroText] = useState(initialHTML); // 에디터의 내용을 저장
+  const [commentText, setcommentText] = useState(initComment); // 댓글입력
   const [commentData, setCommentData] = useState([]); // 댓글 데이터를 배열로 관리
 
 
@@ -48,6 +50,9 @@ function BoardWrite() {
   const handleIntroTextChange = (value) => {
     setIntroText(value); 
   };
+  const handleCommentTextChange = (e) =>{
+    setcommentText(e.target.value);
+  }
 
   const handleEditButtonClick = async() => {
     setIsEditing(!isEditing); // 편집 버튼 클릭 시 가시성 상태를 토글
@@ -62,6 +67,15 @@ function BoardWrite() {
       }
     }
   };
+  const handleCommenButtonClick = async() => {
+    if(isLoginYn){
+      save02(id, commentText, '관리자');  
+    } else {
+      save02(id, commentText, '손님');
+    }
+    setcommentText('');
+    window.location.reload();
+  }; 
 
   // 처음 렌더링 시 Search01 함수 호출
   useEffect(() => {
@@ -127,6 +141,7 @@ function BoardWrite() {
           </button>
         }
       </p>
+      { !isNaN(id) &&
       <div className="comment-section">
         <h2>댓글</h2>
         <div className="comment-list">
@@ -136,11 +151,13 @@ function BoardWrite() {
             <span className='comment-time'>작성시간: {comment.date}</span></p>
           ))}
         </div>
-        <div className="comment-form">
-          <textarea className='comment-textarea' placeholder="댓글을 작성하세요"/>
-          <button className="new-post-button">댓글 작성</button>
-        </div>
+
+          <div className="comment-form">
+            <textarea value={commentText} onChange={handleCommentTextChange} className='comment-textarea' placeholder="댓글을 작성하세요"/>
+            <button className="new-post-button" onClick={handleCommenButtonClick}>댓글 작성</button>
+          </div>
       </div>
+      }
     </div>
   );
 }
