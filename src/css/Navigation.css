@@ -35,17 +35,21 @@
   .left-nav {
     background-color: #ffffff; /* 배경색 설정 */
     padding: 5px; /* 패딩 설정 */
-    width: 80px; /* 네비게이션 너비 설정 */
+    width: 100%; /* 네비게이션 너비 설정 */
   }
 
   .profile-img {
     width: 70px; /* 원하는 너비로 조절 */
     height: 70px; /* 원하는 높이로 조절 */
   }
+  .li-sub{
+    font-weight: bold;
+    width:100px;
+  }
   .left-nav a {
     color: #000000; /* 링크 글자색 설정 */
     text-decoration: none; /* 밑줄 제거 */
-    font-size: 13px; /* 글자 크기 설정 */
+    font-size: 18px; /* 글자 크기 설정 */
   }
 
 }
