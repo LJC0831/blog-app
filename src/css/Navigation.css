@@ -35,6 +35,7 @@
   .left-nav {
     background-color: #ffffff; /* 배경색 설정 */
     padding: 5px; /* 패딩 설정 */
+    width:25vw;
   }
 
   .profile-img {
@@ -43,7 +44,6 @@
   }
   .li-sub{
     font-weight: bold;
-    width:100px;
   }
   .left-nav a {
     color: #000000; /* 링크 글자색 설정 */
