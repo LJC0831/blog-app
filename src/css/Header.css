@@ -8,12 +8,19 @@
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* 그림자 효과 (선택사항) */
     z-index: 1000; /* 다른 요소 위에 헤더를 배치 (선택사항) */
   }
-
-.account-class{ 
+.logo-class:hover{
+  cursor: pointer;
+}
+.account-class { 
   float: right;
+  cursor: pointer;
+  border: 1px solid #fff;
+  transition: background-color 0.3s;
   }
-
-
+.account-class:hover {
+  background-color: #333;
+  color: #fff;
+}
 
 
 /* Modal styles */
