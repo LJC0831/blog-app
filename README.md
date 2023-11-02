@@ -1,5 +1,5 @@
-프론트엔드 JavaScript 라이브러리 React 템플릿입니다.
-개인개발 이력을 남기기위한 블로그를 제작하였습니다.
-접속주소 : https://www.develop-blog.shop/
+# 블로그접속 접속URL: [https://www.friendtalk.shop/](https://www.develop-blog.shop/)
 
+## 웹 화면
 
+![image](https://github.com/LJC0831/blog-app/assets/121738554/782a2216-8c45-43d6-b541-449ba620eb8a)
