@@ -23,19 +23,18 @@
 /* 화면 크기가 768px 이하일 때 스타일 변경 */
 @media (max-width: 768px) {
   .margin-content {
-    max-width:350px;
-    margin-left:80px;
+    max-width:300px;
+    margin-left:1px;
    }
   main {
-    max-width: 350x; /* 최대 너비 700px로 제한 */
-    margin-left:-50px;
+    max-width: 300x; /* 최대 너비 700px로 제한 */
   }
   .description {
-    max-width: 350px;
+    max-width: 300px;
     line-height: 1.5;
     font-size: 14px;
   }
   .board-subject {
-    max-width: 350px;
+    max-width: 300px;
   }
 }
