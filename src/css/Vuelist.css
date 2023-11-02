@@ -68,6 +68,8 @@
 
   /* 화면 크기가 768px 이하일 때 스타일 변경 */
 @media (max-width: 768px) {
-  
+  .vue-list-container{
+    max-width: 300px;
+  }
 
 }
