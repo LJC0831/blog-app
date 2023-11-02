@@ -27,10 +27,10 @@ function Navigation() {
             <img src={process.env.PUBLIC_URL + '/profile.JPG'} alt="프로필 사진" className="profile-img" />
           </li>
           <li><a href="/">소개</a></li>
-          <li onClick={toggleFrontendMenu}>
+          <li className="li-parent" onClick={toggleFrontendMenu}>
             frontend
             {showFrontendMenu && (
-              <ul>
+              <ul className="li-submenu">
                 <li className='li-sub'><a href="/board/vue">└ vue.js</a></li>
                 <li className='li-sub'><a href="/board/react">└ react.js</a></li>
               </ul>
@@ -39,7 +39,7 @@ function Navigation() {
           <li onClick={toggleFrontendMenu2}>
             backend
             {showFrontendMenu2 && (
-              <ul>
+              <ul className="li-submenu">
                 <li className='li-sub'><a href="/board/nodejs">└ node.js</a></li>
               </ul>
             )}
@@ -47,7 +47,7 @@ function Navigation() {
           <li onClick={toggleFrontendMenu3}>
             DB
             {showFrontendMenu3 && (
-              <ul>
+              <ul className="li-submenu">
                 <li className='li-sub'><a href="/board/mariadb">└ MariaDB</a></li>
               </ul>
             )}
