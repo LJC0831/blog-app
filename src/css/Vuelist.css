@@ -81,6 +81,7 @@
     border: 1px solid #ddd;
     padding: 10px;
     max-height: 200px;
+    margin-bottom: 50px;
     overflow-y: auto;
   }
 
