@@ -30,7 +30,7 @@ p {
 @media (max-width: 768px) {
   .margin-content {
     width:60vw;
-    margin-left:1px;
+    margin-left:20px;
    }
   .description {
     width:60vw;
