@@ -8,7 +8,9 @@ import Vuelist from './components/Vuelist';
 import ReactList from './components/ReactList';
 import NodejsList from './components/NodejsList';
 import MariadbList from './components/MariadbList';
+import EtcList from './components/EtcList';
 import BoardWrite from './components/BoardWrite';
+
 
  
 
@@ -26,6 +28,7 @@ function App() {
             <Route path="/board/react" element={<ReactList />} />
             <Route path="/board/nodejs" element={<NodejsList />} />
             <Route path="/board/mariadb" element={<MariadbList />} />
+            <Route path="/board/etc" element={<EtcList />} />
             <Route path="/board/:id" element={<BoardWrite />} />
             <Route path="/board/write/:id" element={<BoardWrite />} />
           </Routes>

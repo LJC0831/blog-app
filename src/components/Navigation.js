@@ -30,7 +30,7 @@ function Navigation() {
                 <li className='li-sub'><a href="/board/mariadb">└ MariaDB</a></li>
               </ul>
           </li>
-          <li><a href="/contact">문의</a></li>
+          <li><a href="/board/etc">기타작업</a></li>
         </ul>
       </nav>
     </div>
