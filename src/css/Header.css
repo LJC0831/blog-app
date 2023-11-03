@@ -99,7 +99,6 @@
   
   .menu-open .menu-list {
     display: block; /* 메뉴가 열린 상태일 때 메뉴 리스트를 보여줍니다. */
-    float: left;
   }
   .li-parent{
 
@@ -115,6 +114,9 @@
 /* 화면 크기가 768px 이상일 때 스타일 변경 (웹)*/
 @media (min-width: 768px) {
   .fa-bars{
+    display: none;
+  }
+  .menu-list {
     display: none;
   }
 }
