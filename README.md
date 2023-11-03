@@ -1,4 +1,4 @@
-# 블로그접속 접속URL: [https://www.friendtalk.shop/](https://www.develop-blog.shop/)
+# 블로그접속 접속URL: [https://www.develop-blog.shop/](https://www.develop-blog.shop/)
 
 ## 웹 화면
 
