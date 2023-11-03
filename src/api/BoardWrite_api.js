@@ -38,9 +38,11 @@ export async function save02(id, commentData, ins_user_id) {
       } else {
         // 저장 실패
         console.error('BoardInsert 내용 저장에 실패했습니다.');
+        return false;
       }
     } catch (error) {
       console.error('BoardInsert 내용 저장에 실패했습니다.', error);
+      return false;
     }
   }
 

@@ -70,12 +70,20 @@ function BoardWrite() {
   };
   const handleCommenButtonClick = async() => {
     if(isLoginYn){
-      save02(id, commentText, '관리자');  
+      const result = await save02(id, commentText, '관리자');  
+      if(!result){
+        alert('작성가능한 댓글이 초과하였습니다. 추후 작업예정');
+        return;
+      }
     } else {
-      save02(id, commentText, '손님');
+      const result = await save02(id, commentText, '손님');
+      if(!result){
+        alert('작성가능한 댓글이 초과하였습니다. 추후 작업예정');
+        return;
+      }
     }
     setcommentText('');
-    window.location.reload();
+    //window.location.reload();
   }; 
 
   // 처음 렌더링 시 Search01 함수 호출
