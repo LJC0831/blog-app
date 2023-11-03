@@ -102,16 +102,13 @@
    height: 45px;
   }
   .comment-user{
+    font-size: 18px;
     width:200px;
     padding:10px;
-  }
-  .comment-txt{
-    position: absolute;
-    left: 30vw;
+    margin-right: 20px;
   }
   .comment-time{
-    position: absolute;
-    right: 10vw;
+    float: right;
   }
 
   /* 화면 크기가 768px 이하일 때 스타일 변경 */
