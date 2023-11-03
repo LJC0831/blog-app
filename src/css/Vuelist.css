@@ -101,6 +101,9 @@
    margin-right: 5px;
    height: 45px;
   }
+  .comment-list{
+    max-width: 80vw;
+  }
   .comment-user{
     font-size: 18px;
     width:200px;
@@ -109,6 +112,10 @@
   }
   .comment-time{
     float: right;
+    font-size: 12px;
+  }
+  .comment-txt{
+    max-width:10vw;
   }
 
   /* 화면 크기가 768px 이하일 때 스타일 변경 */

@@ -128,7 +128,7 @@ function BoardWrite() {
         
       )}
       {isEditing && (
-        <p><textarea value={privew} 
+        <p className='.vw60'><textarea value={privew} 
         onChange={(e) => setPrivew(e.target.value)}
         style={{ width: '50vw' }}
         />
@@ -143,7 +143,7 @@ function BoardWrite() {
           dangerouslySetInnerHTML={{ __html: introText }}
         />
       )}
-      <p>
+      <p className='.vw60'>
         { isLoginYn && 
           <button className="new-post-button" onClick={handleEditButtonClick}>
             {isEditing ? (!isNaN(id) ? '수정' : '저장') : '편집'}
@@ -155,7 +155,7 @@ function BoardWrite() {
         <h2>댓글</h2>
         <div className="comment-list">
           {commentData.map((comment, index) => (
-            <p key={index}><span className='comment-user'>{comment.user}</span> 
+            <p className='.vw60' key={index}><span className='comment-user'>{comment.user}</span> 
             <span className='comment-txt'>{comment.content}</span>
             <span className='comment-time'>작성시간: {comment.date}</span></p>
           ))}

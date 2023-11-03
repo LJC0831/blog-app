@@ -1,6 +1,9 @@
 .margin-top-50 {
   margin-top: 50px;
 }
+.vw60 {
+  width:60vw;
+}
 
 .margin-content {
  margin-top: 80px;
@@ -18,9 +21,6 @@
   text-align: center; /* 가운데 정렬 */
   color: #fff; /* 글자색을 흰색으로 설정 */
   padding: 10px; /* 내용과의 간격을 조절하세요 */
-  width:60vw;
-}
-p {
   width:60vw;
 }
 img {
