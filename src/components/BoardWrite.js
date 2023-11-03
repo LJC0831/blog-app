@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'; // 게시판 글번호 받기
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // 에디터의 스타일을 불러옵니다.
 import { save01, Search01, Search02, update01, upload01, fileStatUpdate, save02 } from '../api/BoardWrite_api';
+import { Helmet } from 'react-helmet';
 
 // 줄바꿈 문자를 <br> 태그로 변환하는 함수
 function addLineBreaks(text) {
@@ -29,6 +30,8 @@ function BoardWrite() {
   const [introText, setIntroText] = useState(initialHTML); // 에디터의 내용을 저장
   const [commentText, setcommentText] = useState(initComment); // 댓글입력
   const [commentData, setCommentData] = useState([]); // 댓글 데이터를 배열로 관리
+  const [Htmldescription, setHtmlDescription] = useState(''); // 초기 설명
+  const [HtmlTitle, setHtmlTitle] = useState('LJC Develoer Blog');
 
 
    //에디터 옵션
@@ -99,6 +102,8 @@ function BoardWrite() {
           setSubject(data[0].title);
           setIntroText(data[0].content);
           setPrivew(data[0].privew_content);
+          setHtmlDescription(data[0].privew_content);
+          setHtmlTitle(data[0].title);
       });
       Search02(id).then((data) => {
         // 모든 댓글 정보를 배열에 저장
@@ -120,6 +125,10 @@ function BoardWrite() {
 
   return (
     <div className='margin-content'>
+      <Helmet>
+        <title>{HtmlTitle}</title>
+        <meta name="description" content={Htmldescription} /> 
+      </Helmet>
       {isEditing ? (
         <textarea value={title} 
         onChange={(e) => setSubject(e.target.value)}
