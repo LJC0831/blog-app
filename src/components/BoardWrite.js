@@ -83,7 +83,7 @@ function BoardWrite() {
       }
     }
     setcommentText('');
-    //window.location.reload();
+    window.location.reload();
   }; 
 
   // 처음 렌더링 시 Search01 함수 호출
