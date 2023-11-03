@@ -54,6 +54,9 @@ function BoardWrite() {
   const handleCommentTextChange = (e) =>{
     setcommentText(e.target.value);
   }
+  const saveAfter= async() => {
+    window.location.href ='/board/'+id; // 페이지 이동
+  }
 
   const handleEditButtonClick = async() => {
     setIsEditing(!isEditing); // 편집 버튼 클릭 시 가시성 상태를 토글
@@ -64,7 +67,8 @@ function BoardWrite() {
         update01(title, html.replace(/'/g, "\\'"), privew, id); //작은따옴표의 경우 '\ 로 변경
       } else {
         const html = await upload01(introText, id,''); //html, board_type, board_id
-        save01(title, html.replace(/'/g, "\\'"), privew, id); //작은따옴표의 경우 '\ 로 변경
+        await save01(title, html.replace(/'/g, "\\'"), privew, id); //작은따옴표의 경우 '\ 로 변경
+        await saveAfter();
       }
     }
   };

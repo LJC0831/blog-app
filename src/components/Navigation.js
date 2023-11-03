@@ -12,14 +12,14 @@ function Navigation() {
           </li>
           <li><a href="/">소개</a></li>
           <li className="li-parent" >
-            frontend
+            프론트엔드
               <ul className="li-submenu">
                 <li className='li-sub'><a href="/board/vue">└ vue.js</a></li>
                 <li className='li-sub'><a href="/board/react">└ react.js</a></li>
               </ul>
           </li>
           <li>
-            backend
+            백엔드
               <ul className="li-submenu">
                 <li className='li-sub'><a href="/board/nodejs">└ node.js</a></li>
               </ul>
