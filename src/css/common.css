@@ -30,24 +30,24 @@ img {
 /* 화면 크기가 768px 이하일 때 스타일 변경 */
 @media (max-width: 768px) {
   .margin-content {
-    width:60vw;
+    width:90vw;
     margin-left:20px;
     min-width:300px;
    }
   .description {
-    width:60vw;
+    width:90vw;
     line-height: 1.5;
     font-size: 14px;
   }
   .board-subject {
-    width:60vw;
+    width:90vw;
     height: 70px;
   }
   img {
-    width:60vw;
+    width:90vw;
   }
   p {
-    width:60vw;
+    width:90vw;
   }
   
 }

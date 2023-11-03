@@ -33,6 +33,7 @@
   /* 화면 크기가 768px 이하일 때 스타일 변경 */
 @media (max-width: 768px) {
   .left-nav {
+    display: none;
     background-color: #ffffff; /* 배경색 설정 */
     padding: 5px; /* 패딩 설정 */
     width:25vw;
