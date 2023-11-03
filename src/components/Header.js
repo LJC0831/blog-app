@@ -3,9 +3,10 @@ import '../css/Header.css';
 import { login01 } from '../api/Header_api';
 
 function Header() {
-  const [isModalOpen, setModalOpen] = useState(false);
-  const [password, setPassword] = useState('');
-  const [isLoginYn, setIsLogin] = useState(false);
+  const [isModalOpen, setModalOpen] = useState(false); //로그인팝업
+  const [password, setPassword] = useState(''); //패스워드
+  const [isLoginYn, setIsLogin] = useState(false);//로그인여부
+  const [isMenuOpen, setMenuOpen] = useState(false); //햄버거클릭여부
 
   useEffect(() => {
     // 컴포넌트가 처음 마운트될 때 로컬 세션을 확인하여 로그인 상태 업데이트
@@ -54,15 +55,45 @@ function Header() {
     window.location.href = '/'; // 페이지 이동
   };
 
+  const toggleMenu = () => {
+    setMenuOpen(!isMenuOpen);
+  };
+
   return (
-    <header className="header-class">
+    <header className={`header-class ${isMenuOpen ? 'menu-open' : ''}`}>
       <div>
+      <i className='fas fa-bars' onClick={toggleMenu} style={{ marginRight: '5px' }}></i>
         <span className='logo-class' onClick={goToHomePage}>LJC Developer Blog</span>
         {isLoginYn ? (
           <span className='account-class' onClick={openModal}>Admin</span>
         ) : (
           <span className='account-class' onClick={openModal}>일반용</span>
         )}
+      </div>
+
+      <div className="menu-list">
+        <ul>
+        <li className="li-parent" >
+            프론트엔드
+              <ul className="li-submenu">
+                <li className='li-sub'><a href="/board/vue">vue.js</a></li>
+                <li className='li-sub'><a href="/board/react">react.js</a></li>
+              </ul>
+        </li>
+        <li className="li-parent" >
+            백엔드
+              <ul className="li-submenu">
+                <li className='li-sub'><a href="/board/nodejs">node.js</a></li>
+              </ul>
+          </li>
+          <li className="li-parent" >
+            DB
+              <ul className="li-submenu">
+                <li className='li-sub'><a href="/board/mariadb">MariaDB</a></li>
+              </ul>
+          </li>
+        <li className="li-parent" ><a href="/board/etc">기타작업</a></li>
+        </ul>
       </div>
 
       {isModalOpen && (
