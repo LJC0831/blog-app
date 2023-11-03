@@ -35,6 +35,7 @@ export async function save02(id, commentData, ins_user_id) {
       if (response.ok) {
         // 성공적으로 저장됨
         console.log('내용이 성공적으로 저장되었습니다.');
+        return true;
       } else {
         // 저장 실패
         console.error('BoardInsert 내용 저장에 실패했습니다.');
@@ -142,7 +143,6 @@ export async function upload01(html, board_type, board_id) {
 
 export async function fileStatUpdate(id) {
   try {
-    debugger;
       const response = await fetch(`${api}/api/blog/board/fileStatUpdate`, {
         method: 'POST',
         headers: {
