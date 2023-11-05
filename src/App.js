@@ -29,7 +29,7 @@ function App() {
             <Route path="/board/nodejs" element={<NodejsList />} />
             <Route path="/board/mariadb" element={<MariadbList />} />
             <Route path="/board/etc" element={<EtcList />} />
-            <Route path="/board/:id" element={<BoardWrite />} />
+            <Route path="/board/:id/:privew_content" element={<BoardWrite />}/>
             <Route path="/board/write/:id" element={<BoardWrite />} />
           </Routes>
         </main>

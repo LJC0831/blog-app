@@ -9,8 +9,8 @@ function NodejsList() {
   const [isLoginYn, setIsLogin] = useState(false);
   const navigate = useNavigate();
 
-  const handleItemClick = (id) => {
-    navigate(`/board/${id}`);
+  const handleItemClick = (id, privew_content) => {
+    navigate(`/board/${id}/${privew_content.replace(/\s+/g, '-')}`);
   };
   const handleInsertButton = () => {
     navigate(`/board/write/mariadb`);
@@ -52,7 +52,7 @@ function NodejsList() {
         <h2>MariaDB 작업 관련 게시판입니다.</h2>
         <ul className="post-list">
           {posts.map((post) => (
-            <li key={post.id} className="post-item" onClick={() => handleItemClick(post.id)}>
+            <li key={post.id} className="post-item" onClick={() => handleItemClick(post.id, post.privew_content)}>
               <div className="post-title">{post.title}
               </div>
               <div className="post-content">{post.privew_content}</div>
