@@ -98,26 +98,30 @@ function BoardWrite() {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     setIsLogin(isLoggedIn === 'true');
     if(!isNaN(id)){ //작성된 글 읽기
-      Search01(id).then((data) => { //게시글조회
-          setSubject(data[0].title);
-          setIntroText(data[0].content);
-          setPrivew(data[0].privew_content);
-          setHtmlDescription(data[0].privew_content);
-          setHtmlTitle(data[0].title);
-      });
-      Search02(id).then((data) => {
-        // 모든 댓글 정보를 배열에 저장
-        const comments = data.map((comment) => {
-          return {
-            user: comment.ins_user_id,
-            content: comment.comment,
-            date: comment.ins_ymdhms,
-          };
+      setTimeout(() => {
+        Search01(id).then((data) => { //게시글조회
+            setSubject(data[0].title);
+            setIntroText(data[0].content);
+            setPrivew(data[0].privew_content);
+            setHtmlDescription(data[0].privew_content);
+            setHtmlTitle(data[0].title);
         });
-        
-        // 배열로 저장한 댓글 정보를 상태 변수로 설정
-        setCommentData(comments);
-      });
+      }, 300);
+      setTimeout(() => {
+        Search02(id).then((data) => {
+          // 모든 댓글 정보를 배열에 저장
+          const comments = data.map((comment) => {
+            return {
+              user: comment.ins_user_id,
+              content: comment.comment,
+              date: comment.ins_ymdhms,
+            };
+          });
+          
+          // 배열로 저장한 댓글 정보를 상태 변수로 설정
+          setCommentData(comments);
+        });
+      }, 300);
     } else { // 새글작성
       setIsEditing(true);
     }
