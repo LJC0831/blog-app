@@ -99,7 +99,7 @@ function BoardWrite() {
     setIsLogin(isLoggedIn === 'true');
     if(!isNaN(id)){ //작성된 글 읽기
       setTimeout(() => {
-        Search01(id).then((data) => { //게시글조회
+        Search01(id, isLoggedIn).then((data) => { //게시글조회
             setSubject(data[0].title);
             setIntroText(data[0].content);
             setPrivew(data[0].privew_content);

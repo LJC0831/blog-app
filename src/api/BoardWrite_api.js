@@ -68,14 +68,14 @@ export async function save02(id, commentData, ins_user_id) {
     }
   }
 
-export async function Search01(board_id) {
+export async function Search01(board_id, isLoggedIn) {
     try {
         const response = await fetch(`${api}/api/blog/BoardSearch`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({board_id}),
+          body: JSON.stringify({board_id, isLoggedIn}),
         });
         if (response.ok) {
           // 성공적으로 저장됨
