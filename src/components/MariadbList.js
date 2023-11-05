@@ -23,12 +23,14 @@ function NodejsList() {
     // 이 예제에서는 더미 데이터를 사용
     const fetchData = async () => {
       try {
-        Search01('mariadb').then((data) => {
-          if(data.length > 0){
-            setPosts(data);
-            setLoading(false);
-          }
-        });
+        setTimeout(() => {
+          Search01('mariadb').then((data) => {
+            if(data.length > 0){
+              setPosts(data);
+              setLoading(false);
+            }
+          });
+        }, 300);
         setLoading(false);
       } catch (error) {
         console.error('데이터를 가져오는 중 오류가 발생했습니다.', error);

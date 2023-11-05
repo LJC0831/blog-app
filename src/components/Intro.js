@@ -55,10 +55,12 @@ function Intro() {
   useEffect(() => {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     setIsLogin(isLoggedIn === 'true');
-    Search01().then((data) => {
-      setSubject(data[0].subject);
-      setIntroText(data[0].content);
-    });
+    setTimeout(() => {
+      Search01().then((data) => {
+        setSubject(data[0].subject);
+        setIntroText(data[0].content);
+      });
+    }, 300);
   }, []); // 빈 배열을 전달하여 컴포넌트 마운트 시 한 번만 실행
 
   return (
