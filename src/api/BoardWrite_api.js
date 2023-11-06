@@ -1,5 +1,6 @@
 
 import api from '../api/api';
+import {exchangeString01 } from './api';
 
 // 게시글작성
 export async function save01(title, content, privew, board_type) {
@@ -25,6 +26,8 @@ export async function save01(title, content, privew, board_type) {
   // 댓글작성
 export async function save02(id, commentData, ins_user_id) {
     try {
+      commentData = exchangeString01(commentData);
+      debugger;
       const response = await fetch(`${api}/api/blog/BoardInsert2`, {
         method: 'POST',
         headers: {
