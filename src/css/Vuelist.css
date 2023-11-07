@@ -121,5 +121,8 @@
   .vue-list-container{
     width:90vw;
   }
+  .new-post-button {
+    font-size: 14px;
+  }
 
 }
