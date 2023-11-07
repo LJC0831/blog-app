@@ -117,7 +117,6 @@ function BoardWrite() {
           });
           
           // 배열로 저장한 댓글 정보를 상태 변수로 설정
-          debugger;
           setRelationData(data2);
         });
       }, 300);
