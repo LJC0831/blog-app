@@ -14,8 +14,8 @@ function Navigation() {
           <li className="li-parent" >
             프론트엔드
               <ul className="li-submenu">
-                <li className='li-sub'><a href="/board/vue">└ vue.js</a></li>
                 <li className='li-sub'><a href="/board/react">└ react.js</a></li>
+                <li className='li-sub'><a href="/board/vue">└ vue.js</a></li>
               </ul>
           </li>
           <li>
