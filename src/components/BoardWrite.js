@@ -145,7 +145,7 @@ function BoardWrite() {
       <div>
       <Helmet>
         <title>{HtmlTitle}</title>
-        <meta name="description" content={Htmldescription} /> 
+        <meta name="description" content={Htmldescription} data-react-helmet="true"/> 
       </Helmet>
       {isEditing ? (
         <textarea value={title} 
