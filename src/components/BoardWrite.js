@@ -111,11 +111,13 @@ function BoardWrite() {
           // 관련게시판
           const data2 = data.map((data2) => {
             return {
-              title: data2.title
+              title: data2.title,
+              url: data2.url
             };
           });
           
           // 배열로 저장한 댓글 정보를 상태 변수로 설정
+          debugger;
           setRelationData(data2);
         });
       }, 300);
@@ -204,7 +206,7 @@ function BoardWrite() {
         {relationData.length > 0 ? (
           <ul>
           {relationData.map((data, index) => (
-            <li className='relation-li' key={index}>{data.title}</li>
+            <li className='relation-li' key={index}><a href={data.url}>{data.title}</a></li>
           ))}
           </ul>
         ) : (
