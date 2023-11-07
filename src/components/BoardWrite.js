@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom'; // 게시판 글번호 받기
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // 에디터의 스타일을 불러옵니다.
-import { save01, Search01, Search02, update01, upload01, fileStatUpdate, save02 } from '../api/BoardWrite_api';
+import { save01, Search01, Search02, Search03, update01, upload01, fileStatUpdate, save02 } from '../api/BoardWrite_api';
 import { Helmet } from 'react-helmet';
 
 // 줄바꿈 문자를 <br> 태그로 변환하는 함수
@@ -30,6 +30,7 @@ function BoardWrite() {
   const [introText, setIntroText] = useState(initialHTML); // 에디터의 내용을 저장
   const [commentText, setcommentText] = useState(initComment); // 댓글입력
   const [commentData, setCommentData] = useState([]); // 댓글 데이터를 배열로 관리
+  const [relationData, setRelationData] = useState([]); // 관련게시판 배열
   const [Htmldescription, setHtmlDescription] = useState(''); // 초기 설명
   const [HtmlTitle, setHtmlTitle] = useState('LJC Develoer Blog');
 
@@ -106,6 +107,17 @@ function BoardWrite() {
             setHtmlDescription(data[0].privew_content);
             setHtmlTitle(data[0].title);
         });
+        Search03(id).then((data) => {
+          // 관련게시판
+          const data2 = data.map((data2) => {
+            return {
+              title: data2.title
+            };
+          });
+          
+          // 배열로 저장한 댓글 정보를 상태 변수로 설정
+          setRelationData(data2);
+        });
       }, 300);
       setTimeout(() => {
         Search02(id).then((data) => {
@@ -129,6 +141,7 @@ function BoardWrite() {
 
   return (
     <div className='margin-content'>
+      <div>
       <Helmet>
         <title>{HtmlTitle}</title>
         <meta name="description" content={Htmldescription} /> 
@@ -185,6 +198,21 @@ function BoardWrite() {
       </div>
       }
     </div>
+    {/* 우측 관련게시판 */}
+      <div className='relation-form'>
+          <h5>관련게시물</h5>
+        {relationData.length > 0 ? (
+          <ul>
+          {relationData.map((data, index) => (
+            <li className='relation-li' key={index}>{data.title}</li>
+          ))}
+          </ul>
+        ) : (
+          <p>관련 게시물이 없습니다.</p>
+        )}
+      </div>
+    </div>
+    
   );
 }
 

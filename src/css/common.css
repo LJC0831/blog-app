@@ -4,7 +4,12 @@
 .vw60 {
   width:60vw;
 }
-
+.intro-content {
+  margin-top: 80px;
+  margin-left: 10%;
+  width:100%;
+  min-width:1200px;
+ }
 .margin-content {
  margin-top: 80px;
  margin-left: 10%;
@@ -35,6 +40,11 @@ img {
     margin-left:20px;
     min-width:300px;
    }
+   .intro-content {
+    width:90vw;
+    margin-left:20px;
+    min-width:300px;
+   }
   .description {
     width:90vw;
     line-height: 1.5;
@@ -51,4 +61,10 @@ img {
     width:90vw;
   }
   
+}
+/* 화면 크기가 768px 이상일 때 스타일 변경 (웹)*/
+@media (min-width: 768px) {
+  .margin-content {
+    display: flex;
+  }
 }

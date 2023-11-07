@@ -115,6 +115,7 @@
   .comment-txt{
     max-width:10vw;
   }
+  
 
   /* 화면 크기가 768px 이하일 때 스타일 변경 */
 @media (max-width: 768px) {
@@ -124,5 +125,37 @@
   .new-post-button {
     font-size: 14px;
   }
+  .relation-li{
+    max-width:80vw;
+    overflow-wrap: break-word;
+   }
+   .relation-form{
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width:90vw;
+    margin-bottom: 20px;
+  }
 
+}
+
+/* 화면 크기가 768px 이상일 때 스타일 변경 (웹)*/
+@media (min-width: 768px) {
+ .relation-li{
+  max-width:10vw;
+  overflow-wrap: break-word;
+  list-style: none; /* 리스트 마커 제거 */
+  margin-left: -40px;
+  font-size: 14px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+ }
+ .relation-form{
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  max-width:10vw;
+  }
 }
