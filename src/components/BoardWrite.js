@@ -32,7 +32,7 @@ function BoardWrite() {
   const [commentData, setCommentData] = useState([]); // 댓글 데이터를 배열로 관리
   const [relationData, setRelationData] = useState([]); // 관련게시판 배열
   const [Htmldescription, setHtmlDescription] = useState(''); // 초기 설명
-  const [HtmlTitle, setHtmlTitle] = useState('게시판');
+  const [HtmlTitle, setHtmlTitle] = useState('LJC Developer Blog');
 
 
    //에디터 옵션
