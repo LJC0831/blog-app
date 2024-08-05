@@ -1,4 +1,4 @@
-# 블로그접속 접속URL: [https://www.develop-blog.shop/](https://www.develop-blog.shop/)
+# 블로그접속 접속URL: [https://www.develop-blog.pe.kr/](https://www.develop-blog.pe.kr/)
 
 ## 웹 화면
 
